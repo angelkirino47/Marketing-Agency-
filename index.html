@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-1906e697-b6c0-4184-a7f1-60dcf99891bc/styles.css">
+<script src="_ds/modernist-1906e697-b6c0-4184-a7f1-60dcf99891bc/_ds_bundle.js"></script>
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin: 0; background: #0a0908; color: #f8f4f4; font-family: "Archivo", system-ui, sans-serif; }
+  a { color: #ff9783; text-decoration: none; }
+  a:hover { color: #ff563c; }
+  @keyframes travelFlat { from { left: 0; } to { left: calc(100% - 12px); } }
+  @keyframes feedScroll { from { transform: translateY(0); } to { transform: translateY(-40px); } }
+  @keyframes ringOut { 0% { transform: scale(1); opacity: 0.8; } 70% { opacity: 0; } 100% { transform: scale(3.2); opacity: 0; } }
+  @keyframes strikeIn { 0%, 55% { transform: scaleX(0); opacity: 0; } 70% { transform: scaleX(1); opacity: 1; } 95% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+  @keyframes dotBlink { 0%, 100% { opacity: 0.18; } 50% { opacity: 1; } }
+  @keyframes typeLine { 0% { width: 4px; } 60%, 100% { width: 40px; } }
+  @keyframes leakDrip { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(46px) translateX(10px); opacity: 0; } }
+  @keyframes snapAlign { 0% { transform: translateX(12px); } 40%, 100% { transform: translateX(0); } }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  .reveal { animation: riseIn 0.7s cubic-bezier(0.2,0.7,0.2,1) both; animation-play-state: paused; }
+  .reveal.in { animation-play-state: running; }
+  .prob { transition: background 0.35s ease, border-color 0.35s ease; }
+  .prob:hover { background: rgba(255,86,60,0.07) !important; }
+  #enquiry input::placeholder, #enquiry textarea::placeholder, #quick-enquiry input::placeholder, #quick-enquiry textarea::placeholder { color: rgba(248,244,244,0.35); }
+  #enquiry input:focus, #enquiry textarea:focus, #enquiry select:focus, #quick-enquiry input:focus, #quick-enquiry select:focus, #quick-enquiry textarea:focus { outline: none; border-color: #ff563c; }
+  #quick-enquiry .fw { position: relative; }
+  #quick-enquiry .fw::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: #ff563c; transition: width 0.35s cubic-bezier(0.2,0.7,0.2,1); }
+  #quick-enquiry .fw:focus-within::after { width: 100%; }
+  #quick-enquiry .idx { display: inline-block; min-width: 22px; color: #ff563c; }
+  #quick-enquiry input, #quick-enquiry select, #quick-enquiry textarea { transition: background 0.25s ease, border-color 0.25s ease; }
+  #quick-enquiry input:hover, #quick-enquiry select:hover, #quick-enquiry textarea:hover { background: rgba(248,244,244,0.04); }
+  @keyframes gridDrift { from { background-position: 0 0; } to { background-position: 0 40px; } }
+  @keyframes cursorBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  #quick-enquiry .optset { display: flex; flex-wrap: wrap; gap: 10px; }
+  #quick-enquiry .opt { position: relative; cursor: pointer; }
+  #quick-enquiry .opt input { position: absolute; opacity: 0; width: 0; height: 0; }
+  #quick-enquiry .opt span { display: block; border: 1px solid rgba(248,244,244,0.28); padding: 13px 18px; font-size: 15px; font-weight: 600; color: rgba(248,244,244,0.8); transition: all 0.2s ease; }
+  #quick-enquiry .opt:hover span { border-color: rgba(255,86,60,0.6); color: #f8f4f4; background: rgba(255,86,60,0.07); }
+  #quick-enquiry .opt input:checked + span { border-color: #ff563c; background: #ff563c; color: #14100f; }
+  #quick-enquiry .opt input:focus-visible + span { outline: 2px solid #ff563c; outline-offset: 2px; }
+  .rule { height: 1px; background: rgba(248,244,244,0.16); border: 0; }
+  .btn-dark { display: inline-block; padding: 15px 24px; background: #ff563c; color: #14100f; font-weight: 700; font-size: 15px; letter-spacing: 0.01em; border: 0; }
+  .btn-dark:hover { background: #ff9783; color: #14100f; }
+  .btn-line { display: inline-block; padding: 15px 24px; border: 1px solid rgba(248,244,244,0.35); color: #f8f4f4; font-weight: 600; font-size: 15px; }
+  .btn-line:hover { border-color: #ff563c; color: #ff563c; }
+  .micro { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248,244,244,0.5); }
+  a:focus-visible, [tabindex]:focus-visible { outline: 2px solid #ff563c; outline-offset: 2px; }
+</style>
+</helmet>
+
+<div style="position:relative;overflow:hidden;background:#0a0908">
+
+  
+
+      <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 40px">
+
+    <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 26px 0; width: 1221px; height: 192px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <img src="assets/logo.png?v=2" alt="Funnel Sales System logo" width="150" height="111" style="display:block;width:150px;height:111px;object-fit:contain">
+        <span style="font-weight:800;font-size:15px;letter-spacing:0.18em">FUNNEL SALES SYSTEM</span>
+        <span class="micro">Trade &amp; professional services</span>
+      </div>
+      <nav style="display:flex;align-items:center;gap:30px">
+        <a href="#plan" style="font-size:13px;font-weight:600;color:#f8f4f4">How it works</a>
+        <a href="services.html" style="font-size:13px;font-weight:600;color:#f8f4f4">Services</a>
+        <a href="#pricing" style="font-size:13px;font-weight:600;color:#f8f4f4">Pricing</a>
+        <a href="#quick-enquiry" class="btn-dark" style="padding:11px 18px;font-size:13px">Send enquiry</a>
+      </nav>
+    </header>
+    <hr class="rule">
+
+    <!-- 1 · HEADER -->
+    <section data-screen-label="Header" style="padding:88px 0 72px">
+      
+    <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:64px;align-items:start">
+        <div>
+          <p class="micro" style="margin:0 0 28px"><br></p>
+          <h1 style="font-weight: 800; font-size: 86px; line-height: 0.94; letter-spacing: -0.02em; margin: 0 0 8px; text-transform: uppercase">we craft SYSTEMS that gets SALEs.<br></h1>
+          
+          
+          <h1 style="color: #ff563c; font-weight: 800; font-size: 25px; line-height: 0.94; letter-spacing: -0.02em; margin: 0 0 8px; text-transform: uppercase"><br></h1><p style="font-size: 18px; line-height: 1.55; max-width: 30em; margin: 0 0 36px; color: var(--color-accent-2); text-wrap: pretty"><br></p><div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <a href="#pricing" class="btn-dark" style="padding:18px 30px;font-size:17px">Invest In Your Business</a>
+            <a href="#quick-enquiry" class="btn-dark" style="padding:18px 30px;font-size:17px">Check If You Qualify Inmediately<br></a>
+          </div>
+          <div style="display:flex;margin:14px 0 0">
+            
+          </div>
+          <p class="micro" style="margin:20px 0 0"><br></p>
+        </div>
+      </div>
+      <div style="display:flex;gap:24px;justify-content:center;margin:64px 0 0">
+        <div style="border:1px solid #ff563c;background:rgba(255,86,60,0.06);padding:24px 28px;width:320px;text-align:center">
+          <p style="font-size:15px;line-height:1.45;color:rgba(248,244,244,0.7);margin:0">No sale, no fee.</p><p class="micro" style="margin:0 0 10px;color:#ff9783"><br></p>
+          <p style="font-weight:800;font-size:20px;text-transform:uppercase;line-height:1.15;margin:0 0 8px">Sales guaranteed</p>
+          
+        </div>
+        <div style="border:1px solid rgba(248,244,244,0.28);padding:24px 28px;width:320px;text-align:center">
+          <p class="micro" style="margin:0 0 10px">Selected business<br><br></p>
+          <p style="font-weight:800;font-size:20px;text-transform:uppercase;line-height:1.15;margin:0 0 8px">CHOSEN BUSINESS</p>
+          <p style="font-size:15px;line-height:1.45;color:rgba(248,244,244,0.7);margin:0"><br></p>
+        </div>
+      </div>
+    </section>
+    <hr class="rule">
+
+    <!-- 5 · PLAN -->
+    <section id="plan" data-screen-label="Plan" style="padding:80px 0">
+      <p class="micro" style="margin:0 0 24px;color:#ff9783;font-size:16px;letter-spacing:0.14em">How to start with us</p>
+      <h2 style="font-weight:800;font-size:48px;line-height:1;letter-spacing:-0.02em;margin:0 0 48px;text-transform:uppercase">Three steps to start</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(248,244,244,0.16)">
+        <div style="background:#0a0908;padding:32px 28px 32px 0;display:flex;flex-direction:column">
+          <p class="micro" style="margin:0 0 16px;color:#ff563c">Step 1</p>
+          <p style="font-weight:800;font-size:26px;text-transform:uppercase;line-height:1.1;margin:0 0 12px">CHECK THE RANGE OF SERIVCES</p>
+          <p style="font-size:16px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0 0 18px">Read carefully for a better outcome on the call.</p><p style="margin: auto 0 0; font-size: 15px"><a href="services.html" style="font-weight:700">See the services →</a></p>
+          
+        </div>
+        <div style="background:#0a0908;padding:32px 28px;display:flex;flex-direction:column">
+          <p class="micro" style="margin:0 0 16px;color:#ff563c">STEP 2</p>
+          <p style="font-weight:800;font-size:26px;text-transform:uppercase;line-height:1.1;margin:0 0 12px">SEND THE ENQUIRY</p>
+          <p style="font-size:16px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0 0 18px">We will call you as soon as we analyze your business.&nbsp;</p>
+          <p style="margin: auto 0 0; font-size: 15px"><a href="#quick-enquiry" style="font-weight:700">Open the form →</a></p>
+        </div><div style="background:#0a0908;padding:32px 0 32px 28px;display:flex;flex-direction:column">
+          <p class="micro" style="margin:0 0 16px;color:#ff563c">STEP 3</p>
+          <p style="font-weight:800;font-size:26px;text-transform:uppercase;line-height:1.1;margin:0 0 12px">WE WILL PROVIDE YOU WITH A PLAN</p>
+          <p style="font-size:16px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0 0 18px">When you approve the proposal we will start workning towards your business goals.&nbsp;</p><p style="margin: auto 0 0; font-size: 15px"><br></p>
+          
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- 2 · ENQUIRY FORM -->
+    <section id="quick-enquiry" data-screen-label="Enquiry Form" style="padding:64px 0">
+      <div style="position:relative;border:1px solid #ff563c;background:rgba(255,86,60,0.06);padding:44px;display:grid;grid-template-columns:0.75fr 1.25fr;gap:56px;align-items:start;overflow:hidden">
+        <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(248,244,244,0.05) 1px, transparent 1px); background-size: 100% 40px; animation: gridDrift 6s linear infinite; pointer-events: none; width: 1261px; height: 764px"><p class="micro" style="margin: 18px 0 0">We reply to every enquiry within 24 hours.</p></div>
+        <div style="position:relative">
+          <p class="micro" style="margin:0 0 16px;color:#ff9783">Send an enquiry</p>
+          <p style="font-weight:800;font-size:34px;text-transform:uppercase;line-height:1.05;letter-spacing:-0.02em;margin:0 0 14px">Start here<span style="display:inline-block;width:14px;height:30px;margin-left:8px;background:#ff563c;vertical-align:-4px;animation:cursorBlink 1.1s steps(1) infinite"></span></p>
+          <p style="font-size:16px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0 0 28px">Five questions, two minutes. Tap the boxes that apply. We only take on a few firms at a time — this tells us whether the system fits your business.</p>
+          <div style="margin:0 0 28px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin:0 0 10px">
+              <span class="micro">Form progress</span>
+              <span id="qe-count" class="micro" style="color:#ff563c">0 / 5</span>
+            </div>
+            <div style="height:4px;background:rgba(248,244,244,0.16)">
+              <div id="qe-bar" style="height:100%;width:0;background:#ff563c;transition:width 0.4s cubic-bezier(0.2,0.7,0.2,1)"></div>
+            </div>
+          </div>
+          <div style="display:grid;gap:14px">
+            <div style="display:flex;justify-content:space-between;font-size:14px;border-bottom:1px solid rgba(248,244,244,0.16);padding:0 0 14px"><span class="micro">Reply time</span><span style="font-weight: 700">Within 24 Hours</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:14px;border-bottom:1px solid rgba(248,244,244,0.16);padding:0 0 14px"><span class="micro">Cost</span><span style="font-weight: 700;">Pay After Sale</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:14px"><span class="micro">Next step</span><span style="font-weight:700">Consultation call</span></div>
+          </div>
+        </div>
+        <div style="position: relative; width: 644px; min-height: 599px">
+          <div style="margin:0 0 32px">
+            <label for="qe-trade" class="micro" style="display:block;margin:0 0 14px"><span class="idx">01</span>Type of business</label>
+            <input id="qe-trade" type="text" placeholder="e.g. Loft extensions, roofing, law firm" style="width:100%;box-sizing:border-box;background:transparent;border:1px solid rgba(248,244,244,0.28);color:#f8f4f4;font-family:inherit;font-size:16px;padding:14px 16px">
+          </div>
+          <div style="margin:0 0 32px">
+            <p class="micro" style="margin:0 0 14px"><span class="idx">02</span>How much is the business currently making a year ?</p>
+            <div class="optset">
+            <label class="opt"><input type="radio" name="qe-revenue" value="Under £25k"><span>Under £25k</span></label>
+            <label class="opt"><input type="radio" name="qe-revenue" value="£25k – £50k"><span>£25k – £50k</span></label>
+            <label class="opt"><input type="radio" name="qe-revenue" value="£50k – £100k"><span>£50k – £100k</span></label>
+            <label class="opt"><input type="radio" name="qe-revenue" value="£100k – £250k"><span>£100k – £250k</span></label>
+            <label class="opt"><input type="radio" name="qe-revenue" value="£250k – £500k"></label>
+            <label class="opt"><input type="radio" name="qe-revenue" value="£500k – £1m"></label>
+            <label class="opt"><input type="radio" name="qe-revenue" value="Over £1m"></label>
+            </div>
+          </div>
+          <div style="margin:0 0 32px">
+            <p class="micro" style="margin:0 0 14px"><span class="idx">03</span>Willing to negotiate a commission on each sale?</p>
+            <div class="optset">
+            <label class="opt"><input type="radio" name="qe-commission" value="No"><span>YES, I AM AWARE</span></label>
+            <label class="opt"><input type="radio" name="qe-commission" value="Open to discuss"></label>
+            </div>
+          </div>
+          <div class="fw" style="margin:0 0 28px">
+            <label for="qe-contact" class="micro" style="display:block;margin:0 0 14px"><span class="idx">04</span>Email address or phone number</label>
+            <input id="qe-contact" type="text" placeholder="jane@doelofts.co.uk  or  07700 900000" style="width:100%;box-sizing:border-box;background:transparent;border:1px solid rgba(248,244,244,0.28);color:#f8f4f4;font-family:inherit;font-size:16px;padding:14px 16px">
+          </div>
+          <div style="margin:0 0 32px">
+            <p class="micro" style="margin:0 0 14px"><span class="idx">05</span>What service are you nterested on ?</p>
+            <div class="optset">
+            <label class="opt"><input type="checkbox" name="qe-service" value="Sales Funnel System"><span>Sales Funnel System</span></label>
+            <label class="opt"><input type="checkbox" name="qe-service" value="Sales-Focused Website"><span>Sales-Focused Website</span></label>
+            <label class="opt"><input type="checkbox" name="qe-service" value="Content Creation"><span>Content Creation</span></label>
+            <label class="opt"><input type="checkbox" name="qe-service" value="Email Marketing"><span>Email Marketing</span></label>
+            <label class="opt"><input type="checkbox" name="qe-service" value="Marketing Strategy"><span>Marketing Strategy</span></label>
+            <label class="opt"><input type="checkbox" name="qe-service" value="AI Automations"><span>AI Automations</span></label>
+            <label class="opt"><input type="checkbox" name="qe-service" value="Business Proposals"><span>Business Proposals</span></label>
+            <label class="opt"><input type="checkbox" name="qe-service" value="Management Strategy"><span>Management Strategy</span></label>
+            </div>
+          </div>
+          <div id="qe-submit">
+            
+            
+          </div>
+          <div id="qe-done" style="display:none;border:1px solid #ff563c;background:rgba(255,86,60,0.08);padding:32px">
+            <p class="micro" style="margin:0 0 14px;color:#ff9783">Enquiry received</p>
+            <p style="font-weight:800;font-size:28px;text-transform:uppercase;line-height:1.08;letter-spacing:-0.02em;margin:0 0 12px">Thank you, we will be in touch</p>
+            <p style="font-size:16px;line-height:1.55;color:rgba(248,244,244,0.75);margin:0 0 16px;max-width:32em">Your answers are with us. We are reviewing your business now. Wait for our response, we will get back to you very soon on the email or phone number you gave us.</p>
+            <p class="micro" style="margin:18px 0 0">Keep an eye on your inbox, and your spam folder just in case.</p>
+          </div><a href="#quick-enquiry" id="qe-send" class="btn-dark" style="padding: 18px 30px; font-size: 17px">Send Enquiry</a>
+        </div>
+      </div>
+    </section>
+    <hr class="rule">
+
+    <!-- 3 · WHAT MOST BUSINESSES GO THROUGH -->
+    <section data-screen-label="Problems We Solve" style="padding:80px 0">
+      <p class="micro" style="margin:0 0 24px;color:#ff9783;font-size:16px;letter-spacing:0.14em">What most businesses go through</p>
+      <h2 class="reveal" style="font-weight:800;font-size:48px;line-height:1;letter-spacing:-0.02em;margin:0 0 48px;text-transform:uppercase">Problems we solve</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(248,244,244,0.16)">
+        <div class="prob reveal" style="animation-delay:0.00s;background:#0a0908;padding:32px 28px 32px 0">
+          <div style="width:76px;height:48px;margin:0 0 20px">
+            <div style="position:relative;height:100%;width:100%">
+              <div style="position:absolute;top:22px;left:0;right:0;height:2px;background:rgba(248,244,244,0.3)"></div>
+              <div style="position:absolute;top:17px;left:0;width:12px;height:12px;background:#ff563c;border-radius:50%;animation:travelFlat 3.4s linear infinite"></div>
+              <div style="position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between">
+                <div style="width:1px;height:9px;background:rgba(248,244,244,0.28)"></div>
+                <div style="width:1px;height:9px;background:rgba(248,244,244,0.28)"></div>
+                <div style="width:1px;height:9px;background:rgba(248,244,244,0.28)"></div>
+                <div style="width:1px;height:9px;background:rgba(248,244,244,0.28)"></div>
+                <div style="width:1px;height:9px;background:rgba(248,244,244,0.28)"></div>
+                <div style="width:1px;height:9px;background:rgba(248,244,244,0.28)"></div>
+              </div>
+            </div>
+          </div>
+          <p class="micro" style="margin:0 0 14px;color:#ff9783">01</p>
+          <p style="font-weight:800;font-size:26px;line-height:1.1;letter-spacing:-0.01em;text-transform:uppercase;margin:0 0 14px">FLAT SALES ALL THROGHOUT THE YEAR</p>
+          <p style="font-size:17px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0">Stuck on the same number of jobs month after month, with no system that lifts the figure.</p>
+        </div>
+        <div class="prob reveal" style="animation-delay:0.09s;background:#0a0908;padding:32px 28px">
+          <div style="width:76px;height:48px;margin:0 0 20px">
+            <div style="position:relative;height:100%;display:flex;gap:8px;align-items:center">
+              <div style="width:30px;height:48px;border:2px solid rgba(248,244,244,0.35);padding:4px 3px;overflow:hidden">
+                <div style="display:grid;gap:4px;animation:feedScroll 3.4s linear infinite">
+                  <div style="height:6px;background:rgba(248,244,244,0.25)"></div>
+                  <div style="height:6px;background:#ff563c"></div>
+                  <div style="height:6px;background:rgba(248,244,244,0.25)"></div>
+                  <div style="height:6px;background:rgba(248,244,244,0.25)"></div>
+                  <div style="height:6px;background:#ff563c"></div>
+                  <div style="height:6px;background:rgba(248,244,244,0.25)"></div>
+                  <div style="height:6px;background:rgba(248,244,244,0.25)"></div>
+                  <div style="height:6px;background:#ff563c"></div>
+                </div>
+              </div>
+              <div style="display:grid;gap:5px">
+                <div style="width:22px;height:6px;background:rgba(248,244,244,0.18)"></div>
+                <div style="width:14px;height:6px;background:rgba(248,244,244,0.18)"></div>
+                <div style="width:18px;height:6px;background:#ff563c;animation:dotBlink 1.6s ease-in-out infinite"></div>
+              </div>
+            </div>
+          </div>
+          <p class="micro" style="margin:0 0 14px;color:#ff9783">02</p>
+          <p style="font-weight:800;font-size:26px;line-height:1.1;letter-spacing:-0.01em;text-transform:uppercase;margin:0 0 14px">No time for social content</p>
+          <p style="font-size:17px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0">The traffic is there, but nobody turns it into clients — so the audience never becomes revenue.</p>
+        </div>
+        <div class="prob reveal" style="animation-delay:0.18s;background:#0a0908;padding:32px 0 32px 28px">
+          <div style="width:76px;height:48px;margin:0 0 20px">
+            <div style="position:relative;height:100%;display:flex;align-items:center">
+              <div style="width:12px;height:12px;background:rgba(248,244,244,0.75);border-radius:50%"></div>
+              <div style="position:absolute;left:0;width:12px;height:12px;border:1px solid rgba(248,244,244,0.5);border-radius:50%;animation:ringOut 2.6s ease-out infinite"></div>
+              <div style="position:absolute;left:0;width:12px;height:12px;border:1px solid rgba(248,244,244,0.5);border-radius:50%;animation:ringOut 2.6s ease-out infinite;animation-delay:0.8s"></div>
+              <div style="position:absolute;left:-4px;top:20px;width:56px;height:2px;background:#ff563c;transform-origin:left center;animation:strikeIn 2.6s ease-in-out infinite"></div>
+            </div>
+          </div>
+          <p class="micro" style="margin:0 0 14px;color:#ff9783">03</p>
+          <p style="font-weight:800;font-size:26px;line-height:1.1;letter-spacing:-0.01em;text-transform:uppercase;margin:0 0 14px">Calls going unanswered</p>
+          <p style="font-size:17px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0">You are on site, the phone rings, and the caller books the competition instead.</p>
+        </div>
+        <div class="prob reveal" style="animation-delay:0.27s;background:#0a0908;padding:32px 28px 32px 0">
+          <div style="width:76px;height:48px;margin:0 0 20px">
+            <div style="height:100%;display:flex;flex-direction:column;justify-content:center;gap:7px">
+              <div style="display:flex;align-items:center;gap:5px">
+                <div style="width:8px;height:8px;border:2px solid rgba(248,244,244,0.4)"></div>
+                <div style="height:6px;background:rgba(248,244,244,0.28);animation:typeLine 3.2s steps(12) infinite"></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:5px">
+                <div style="width:8px;height:8px;border:2px solid rgba(248,244,244,0.4)"></div>
+                <div style="width:26px;height:6px;background:rgba(248,244,244,0.18)"></div>
+                <div style="width:7px;height:12px;background:#ff563c;animation:dotBlink 1s steps(1) infinite"></div>
+              </div>
+            </div>
+          </div>
+          <p class="micro" style="margin:0 0 14px;color:#ff9783">04</p>
+          <p style="font-weight:800;font-size:26px;line-height:1.1;letter-spacing:-0.01em;text-transform:uppercase;margin:0 0 14px">AI sitting unused</p>
+          <p style="font-size:17px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0">Not knowing how to use AI for efficiency, time saving and optimisation. The faster you move, the more money and time you keep.</p>
+        </div>
+        <div class="prob reveal" style="animation-delay:0.36s;background:#0a0908;padding:32px 28px">
+          <div style="width:76px;height:48px;margin:0 0 20px">
+            <div style="position:relative;height:100%;width:100%">
+              <div style="position:absolute;bottom:0;left:0;display:grid;gap:4px">
+                <div style="width:44px;height:8px;background:rgba(248,244,244,0.3)"></div>
+                <div style="width:44px;height:8px;background:rgba(248,244,244,0.3)"></div>
+                <div style="width:44px;height:8px;background:rgba(248,244,244,0.3)"></div>
+              </div>
+              <div style="position:absolute;bottom:28px;left:0;width:44px;height:8px;background:#ff563c;animation:leakDrip 2.4s ease-in infinite"></div>
+            </div>
+          </div>
+          <p class="micro" style="margin:0 0 14px;color:#ff9783">05</p>
+          <p style="font-weight:800;font-size:26px;line-height:1.1;letter-spacing:-0.01em;text-transform:uppercase;margin:0 0 14px">YOUR&nbsp; WEBSITE&nbsp; IS LEAKING&nbsp; MONEY.</p>
+          <p style="font-size:17px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0">No one to explain, plainly, where your business is losing money daily.</p>
+        </div>
+        <div class="prob reveal" style="animation-delay:0.45s;background:#0a0908;padding:32px 0 32px 28px">
+          <div style="width:76px;height:48px;margin:0 0 20px">
+            <div style="height:100%;display:grid;gap:7px;align-content:center">
+              <div style="height:8px;width:56px;background:rgba(248,244,244,0.3);animation:snapAlign 3.2s ease-in-out infinite"></div>
+              <div style="height:8px;width:56px;background:#ff563c;animation:snapAlign 3.2s ease-in-out infinite;animation-delay:0.18s"></div>
+              <div style="height:8px;width:56px;background:rgba(248,244,244,0.3);animation:snapAlign 3.2s ease-in-out infinite;animation-delay:0.36s"></div>
+            </div>
+          </div>
+          <p class="micro" style="margin:0 0 14px;color:#ff9783">06</p>
+          <p style="font-weight:800;font-size:26px;line-height:1.1;letter-spacing:-0.01em;text-transform:uppercase;margin:0 0 14px">Management left to chance</p>
+          <p style="font-size:17px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0">Strategy, operations and customer experience all improved and put on a system you can run.</p>
+        </div>
+      </div>
+    </section>
+    <hr class="rule">
+    <!-- 3 · VALUE PROPOSITION -->
+    <section data-screen-label="Value Proposition" style="padding:80px 0">
+      <h2 style="font-weight:800;font-size:48px;line-height:1;letter-spacing:-0.02em;margin:0 0 48px;text-transform:uppercase">What we build you</h2>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
+        <div style="border:1px solid #ff563c;padding:32px;background:rgba(255,86,60,0.06)">
+          <p class="micro" style="margin:0 0 20px;color:#ff9783">01 · The system</p>
+          <p style="font-weight:800;font-size:22px;line-height:1.15;margin:0 0 14px">Sales Funnel System</p>
+          <p style="font-size:15px;line-height:1.6;color:rgba(248,244,244,0.62);margin:0">Page, offer, qualifying form and follow-up working as one system that turns visitors into buyers.</p>
+          <p style="margin:20px 0 0;font-size:15px"><a href="services.html" style="font-weight:700">Learn more →</a></p>
+        </div>
+        <div style="border:1px solid rgba(248,244,244,0.18);padding:32px;background:rgba(248,244,244,0.03)">
+          <p class="micro" style="margin:0 0 20px;color:#ff9783">02 · Website</p>
+          <p style="font-weight:800;font-size:22px;line-height:1.15;margin:0 0 14px">Sales-Focused Website</p>
+          <p style="font-size:15px;line-height:1.6;color:rgba(248,244,244,0.62);margin:0">A website built to make money, not to look nice.</p>
+          <p style="margin:20px 0 0;font-size:15px"><a href="services.html" style="font-weight:700">Learn more →</a></p>
+        </div>
+        <div style="border:1px solid rgba(248,244,244,0.18);padding:32px;background:rgba(248,244,244,0.03)">
+          <p class="micro" style="margin:0 0 20px;color:#ff9783">03 · Content</p>
+          <p style="font-weight:800;font-size:22px;line-height:1.15;margin:0 0 14px">Content Creation</p>
+          <p style="font-size:15px;line-height:1.6;color:rgba(248,244,244,0.62);margin:0">Posts, videos and copy made to sell, not just to fill your feed.</p>
+          <p style="margin:20px 0 0;font-size:15px"><a href="services.html" style="font-weight:700">Learn more →</a></p>
+        </div>
+        <div style="border:1px solid rgba(248,244,244,0.18);padding:32px;background:rgba(248,244,244,0.03)">
+          <p class="micro" style="margin:0 0 20px;color:#ff9783">04 · Email</p>
+          <p style="font-weight:800;font-size:22px;line-height:1.15;margin:0 0 14px">Email Marketing</p>
+          <p style="font-size:15px;line-height:1.6;color:rgba(248,244,244,0.62);margin:0">Sequences that follow up, nurture and bring buyers back without you lifting a finger.</p>
+          <p style="margin:20px 0 0;font-size:15px"><a href="services.html" style="font-weight:700">Learn more →</a></p>
+        </div>
+        <div style="border:1px solid rgba(248,244,244,0.18);padding:32px;background:rgba(248,244,244,0.03)">
+          <p class="micro" style="margin:0 0 20px;color:#ff9783">05 · Strategy</p>
+          <p style="font-weight:800;font-size:22px;line-height:1.15;margin:0 0 14px">Marketing Strategy</p>
+          <p style="font-size:15px;line-height:1.6;color:rgba(248,244,244,0.62);margin:0">A clear plan for who to reach, what to say and where to spend.</p>
+          <p style="margin:20px 0 0;font-size:15px"><a href="services.html" style="font-weight:700">Learn more →</a></p>
+        </div>
+        <div style="border:1px solid rgba(248,244,244,0.18);padding:32px;background:rgba(248,244,244,0.03)">
+          <p class="micro" style="margin:0 0 20px;color:#ff9783">06 · Automation</p>
+          <p style="font-weight:800;font-size:22px;line-height:1.15;margin:0 0 14px">AI Automations</p>
+          <p style="font-size:15px;line-height:1.6;color:rgba(248,244,244,0.62);margin:0">Save time. Move faster and more efficiently.</p>
+          <p style="margin:20px 0 0;font-size:15px"><a href="services.html" style="font-weight:700">Learn more →</a></p>
+        </div>
+        <div style="border:1px solid rgba(248,244,244,0.18);padding:32px;background:rgba(248,244,244,0.03)">
+          <p class="micro" style="margin:0 0 20px;color:#ff9783">07 · Proposals</p>
+          <p style="font-weight:800;font-size:22px;line-height:1.15;margin:0 0 14px">Business Proposals</p>
+          <p style="font-size:15px;line-height:1.6;color:rgba(248,244,244,0.62);margin:0">Proposals written to win the deal, with a clear offer and a clear price.</p>
+          <p style="margin:20px 0 0;font-size:15px"><a href="services.html" style="font-weight:700">Learn more →</a></p>
+        </div>
+        <div style="border:1px solid rgba(248,244,244,0.18);padding:32px;background:rgba(248,244,244,0.03)">
+          <p class="micro" style="margin:0 0 20px;color:#ff9783">08 · Management</p>
+          <p style="font-weight:800;font-size:22px;line-height:1.15;margin:0 0 14px">Management Strategy</p>
+          <p style="font-size:15px;line-height:1.6;color:rgba(248,244,244,0.62);margin:0">Operations, team and customer experience put on a system you can run.</p>
+          <p style="margin:20px 0 0;font-size:15px"><a href="services.html" style="font-weight:700">Learn more →</a></p>
+        </div>
+      </div>
+    </section>
+    <hr class="rule">
+
+    <hr class="rule"><section id="pricing" data-screen-label="Pricing" style="padding: 80px 0">
+      <h2 style="font-weight:800;font-size:48px;line-height:1;letter-spacing:-0.02em;margin:0 0 12px;text-transform:uppercase">PRICING</h2>
+      <p style="font-size:17px;color:rgba(248,244,244,0.62);margin:0 0 48px">Own the system outright, or rent it month to month. Selected clients only.</p><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch">
+        <div style="border:1px solid #ff563c;padding:40px;display:flex;flex-direction:column;background:rgba(255,86,60,0.06)">
+          <p class="micro" style="margin: 0 0 24px; color: var(--color-accent-2); font-size: 40px"><font color="#ff563c"><span style="font-size: 48px; letter-spacing: -1.92px; text-transform: none"><b>We Get Paid After A Month With Us.</b></span></font></p>
+          
+          <p class="micro" style="margin:12px 0 28px">The investement may include some fees per sale.<br></p>
+          <hr class="rule" style="margin:0 0 28px">
+          <ul style="list-style:none;padding:0;margin:0 0 32px;display:grid;gap:14px;font-size:16px;line-height:1.45;color:rgba(248,244,244,0.82)">
+            <li><strong style="font-weight:700">7–9 sections</strong> — every one written and ordered to move the visitor to the form</li>
+            <li><strong style="font-weight:700">Sales Funnel System</strong> — page, offer, qualifying form and follow-up as one working system</li>
+            <li><strong style="font-weight:700">Marketing implementation</strong> — switched on and connected to your traffic, not handed over as a document</li>
+            <li><strong style="font-weight:700">Alarming insights scan</strong> — we show you plainly what is blocking your sales right now</li>
+          </ul>
+          <a href="#quick-enquiry" class="btn-dark" style="margin-top:auto;align-self:flex-start;padding:18px 30px;font-size:17px">Invest In Your Business</a>
+        </div>
+        
+      </div>
+      
+      </section>
+
+
+    
+
+
+
+    <!-- 5b · WORK -->
+    <section id="work" data-screen-label="Work" style="padding:80px 0">
+      <p class="micro" style="margin:0 0 24px;color:#ff9783;font-size:16px;letter-spacing:0.14em">Recent work</p>
+      <h2 style="font-weight:800;font-size:48px;line-height:1;letter-spacing:-0.02em;margin:0 0 16px;text-transform:uppercase">EXAMPLES&nbsp;</h2>
+      <p style="font-size:17px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0 0 48px;max-width:44em">You can find them on Instagram @stunningwebsites4</p>
+      
+      <div style="display:flex;gap:16px;align-items:center;margin:32px 0 0;flex-wrap:wrap"><br>
+      </div>
+    </section>
+    <hr class="rule">
+
+    <!-- 9 · LEAD GENERATOR -->
+    <section id="leadgen" data-screen-label="Lead Generator" style="padding:80px 0">
+      <div style="border:1px solid rgba(248,244,244,0.18);display:grid;grid-template-columns:1fr 0.8fr;background:rgba(248,244,244,0.03)">
+        <div style="padding:48px">
+          <p class="micro" style="margin:0 0 24px;color:#ff9783">Free · PDF</p>
+          <h2 style="font-weight:800;font-size:36px;line-height:1.06;letter-spacing:-0.02em;margin:0 0 18px">The 12-Point Enquiry Checklist</h2>
+          <p style="font-size:17px;line-height:1.6;color:rgba(248,244,244,0.7);margin:0 0 32px;max-width:34em">The twelve things a client checks before they call a firm like yours — and the four that decide whether they call you or your competitor. Twelve pages, no fluff.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a href="#leadgen" class="btn-dark">Send me the checklist</a>
+            <a href="#quick-enquiry" class="btn-line">Or send an enquiry</a>
+          </div>
+        </div>
+        <div class="grayscale" style="position:relative;height:400px;border-left:1px solid rgba(248,244,244,0.18);opacity:0.9">
+          <image-slot id="fsf2-leadgen" shape="rect" fit="cover" placeholder="Drop a photo of the checklist or a finished project"></image-slot>
+        </div>
+      </div>
+    </section>
+    <hr class="rule">
+
+
+    <!-- 4 · GUIDE -->
+    <section data-screen-label="Guide" style="padding:80px 0">
+      <div style="max-width:720px;margin:0 auto;text-align:center">
+        <p class="micro" style="margin:0 0 56px;color:#ff9783">Why us</p>
+        <h2 style="font-weight: 800; font-size: 40px; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 24px; text-wrap: balance; width: 765px; height: 88px">We Know What is Invest in Marketing&nbsp; That may&nbsp; never returns the investment.</h2>
+        
+        <p style="font-size:16px;line-height:1.55;color:rgba(248,244,244,0.68);margin:0">We do it the other way round. We craft the work that generates the sales, and you pay us out of those sales once the deal is sealed. If the call does not convince you, there is nothing to pay.</p>
+      </div>
+    </section>
+    <hr class="rule">
+
+    <!-- 11 · JUNK DRAWER -->
+    <footer data-screen-label="Footer" style="padding:56px 0 72px;display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:40px">
+      <div>
+        <p style="font-weight:800;font-size:14px;margin:0 0 14px;letter-spacing:0.18em">FUNNEL SALES SYSTEM</p>
+        <p style="font-size:14px;line-height:1.55;color:rgba(248,244,244,0.5);margin:0">Sales systems for trade and professional services firms. Built once, handed over working.</p>
+      </div>
+      <div>
+        <p class="micro" style="margin:0 0 16px">Sectors</p>
+        <div style="display:grid;gap:10px;font-size:14px">
+          <a href="#pricing">Loft extensions</a>
+          <a href="#pricing">Home builders</a>
+          <a href="#pricing">Roofing</a>
+          <a href="#pricing">Kitchens &amp; bathrooms</a>
+          <a href="#pricing">Landscaping</a>
+          <a href="#pricing">Law firms</a>
+        </div>
+      </div>
+      <div>
+        <p class="micro" style="margin:0 0 16px">Company</p>
+        <div style="display:grid;gap:10px;font-size:14px">
+          <a href="#plan">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#quick-enquiry">Send an enquiry</a>
+        </div>
+      </div>
+      <div>
+        <p class="micro" style="margin:0 0 16px">Contact</p>
+        <div style="display:grid;gap:10px;font-size:14px;color:rgba(248,244,244,0.6)">
+          <a href="mailto:hello@yourdomain.co.uk">hello@yourdomain.co.uk</a>
+          <span>Mon–Fri, 8am–6pm</span>
+          <span>Privacy · Terms</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  </div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">class Component extends DCLogic {
+  componentDidMount() {
+    const root = this.el || document;
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.18 });
+    const attach = () => document.querySelectorAll('.reveal').forEach(n => {
+      if (!n.classList.contains('in')) io.observe(n);
+    });
+    attach();
+    this._t = setTimeout(attach, 400);
+    this._wireProgress();
+    this._wireSend();
+    this._h = setTimeout(() => { const t = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1))); if (t) t.scrollIntoView(); }, 300);
+  }
+  componentWillUnmount() { clearTimeout(this._t); document.removeEventListener('click', this._send, true); document.removeEventListener('input', this._prog, true); document.removeEventListener('change', this._prog, true); }
+  _questions() {
+    const sec = document.getElementById('quick-enquiry');
+    if (!sec) return [];
+    return Array.from(sec.querySelectorAll('.idx')).map(idx => {
+      const head = idx.parentElement, block = head.parentElement;
+      const question = head.textContent.replace(idx.textContent, '').replace(/\s+/g, ' ').trim();
+      const text = block.querySelector('input[type="text"], input[type="email"], input[type="tel"], textarea, select');
+      const choices = Array.from(block.querySelectorAll('input[type="radio"], input[type="checkbox"]'));
+      let answer = '', target = text;
+      if (text) answer = (text.value || '').trim();
+      else if (choices.length) {
+        target = choices[0].closest('.optset') || block;
+        answer = choices.filter(i => i.checked).map(i => {
+          const lab = i.nextElementSibling;
+          return (lab && lab.textContent.trim()) || i.value;
+        }).join(', ');
+      }
+      return { question, answer, target, block };
+    }).filter(q => q.target);
+  }
+  _wireSend() {
+    this._send = e => {
+      const a = e.target && e.target.closest && e.target.closest('#qe-send');
+      if (!a) return;
+      e.preventDefault();
+      const sec = document.getElementById('quick-enquiry');
+      if (!sec) return;
+      const qs = this._questions();
+      const flag = qs.filter(q => !q.answer).map(q => q.target);
+      if (flag.length) {
+        flag.forEach(el => {
+          el.style.outline = '2px solid #ff563c';
+          el.style.outlineOffset = '3px';
+          setTimeout(() => { el.style.outline = ''; el.style.outlineOffset = ''; }, 1600);
+        });
+        flag[0].focus && flag[0].focus();
+        return;
+      }
+      if (a.dataset.sending === '1') return;
+      const data = {};
+      qs.forEach((q, i) => { data[(q.question || ('Question ' + (i + 1)))] = q.answer; });
+      data._subject = 'New enquiry: ' + (qs[0] ? qs[0].answer : 'website form');
+      const label = a.textContent;
+      a.dataset.sending = '1';
+      a.textContent = 'Sending…';
+      const showDone = () => {
+        const submit = document.getElementById('qe-submit'), done = document.getElementById('qe-done');
+        if (submit) submit.style.display = 'none';
+        a.style.display = 'none';
+        if (done) { done.style.display = 'block'; done.style.opacity = '0'; done.style.transition = 'opacity 0.4s'; requestAnimationFrame(() => { done.style.opacity = '1'; }); }
+      };
+      const fail = () => {
+        a.dataset.sending = '';
+        a.textContent = label;
+        let msg = document.getElementById('qe-error');
+        if (!msg) { msg = document.createElement('p'); msg.id = 'qe-error'; msg.className = 'micro'; msg.style.cssText = 'margin:16px 0 0;color:#ff9783'; a.insertAdjacentElement('afterend', msg); }
+        msg.textContent = 'Something went wrong sending your enquiry. Please try again.';
+      };
+      fetch('https://formspree.io/f/xljbwvka', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(r => { if (r.ok) showDone(); else fail(); }).catch(fail);
+    };
+    document.addEventListener('click', this._send, true);
+  }
+  _wireProgress() {
+    this._prog = () => {
+      const qs = this._questions();
+      const done = qs.filter(q => q.answer).length, total = qs.length;
+      const bar = document.getElementById('qe-bar'), count = document.getElementById('qe-count');
+      if (bar) bar.style.width = (total ? (done / total) * 100 : 0) + '%';
+      if (count) count.textContent = done + ' / ' + total;
+    };
+    document.addEventListener('input', this._prog, true);
+    document.addEventListener('change', this._prog, true);
+    this._prog();
+  }
+}</script>
+</body>
+</html>
