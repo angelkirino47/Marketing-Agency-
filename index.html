@@ -52,6 +52,115 @@
   .btn-line:hover { border-color: #ff563c; color: #ff563c; }
   .micro { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(248,244,244,0.5); }
   a:focus-visible, [tabindex]:focus-visible { outline: 2px solid #ff563c; outline-offset: 2px; }
+  /* ===== Mobile (designed for phones) ===== */
+  .m-only, .m-sticky { display: none; }
+  @media (max-width: 760px) {
+    /* --- base & safety --- */
+    div[style*="max-width:1280px"], div[style*="max-width: 1280px"], .wrap { padding-left: 20px !important; padding-right: 20px !important; }
+    [style*="grid-template-columns"] { grid-template-columns: minmax(0, 1fr) !important; }
+    [style*="width: 644px"], [style*="width: 765px"], [style*="width: 1221px"], [style*="width: 369px"], [style*="width: 375px"], [style*="width:320px"], [style*="width: 320px"] { width: auto !important; max-width: 100% !important; }
+    [style*="min-height: 599px"] { min-height: 0 !important; }
+    [style*="width: 1261px"] { width: auto !important; height: auto !important; }
+    [style*="width: 1261px"] > p { display: none !important; }
+    p[style*="height"], h1[style*="height"], h2[style*="height"], h3[style*="height"], header[style*="height"], div[style*="height: 764px"], div[style*="height: 88px"], div[style*="height: 120px"] { height: auto !important; }
+    p[style*="width"], h1[style*="width"], h2[style*="width"] { width: auto !important; max-width: 100% !important; }
+    h1, h2, h3, p { overflow-wrap: break-word; }
+    .m-empty { display: none !important; }
+    img:not([alt*="logo"]), video { max-width: 100% !important; height: auto !important; }
+    hr.rule + hr.rule { display: none; }
+    body { padding-bottom: 84px; }
+
+    /* --- type scale --- */
+    h1, [style*="font-size: 86px"], [style*="font-size:86px"] { font-size: 44px !important; line-height: 0.98 !important; }
+    h2, [style*="font-size:48px"], [style*="font-size: 48px"] { font-size: 32px !important; line-height: 1.02 !important; }
+    h2 { margin-bottom: 24px !important; }
+    [style*="font-size:64px"], [style*="font-size: 64px"], [style*="font-size:56px"], [style*="font-size: 56px"], [style*="font-size:40px"], [style*="font-size: 40px"], [style*="font-size:36px"], [style*="font-size: 36px"], [style*="font-size:34px"], [style*="font-size: 34px"] { font-size: 28px !important; line-height: 1.08 !important; }
+    [style*="font-size:26px"], [style*="font-size: 26px"], [style*="font-size:28px"], [style*="font-size: 28px"] { font-size: 20px !important; }
+    [style*="font-size:17px"], [style*="font-size: 17px"], [style*="font-size:18px"], [style*="font-size: 18px"] { font-size: 16px !important; }
+    .micro[style*="font-size:16px"] { font-size: 12px !important; margin-bottom: 12px !important; }
+
+    /* --- rhythm --- */
+    section[style*="padding"] { padding-top: 44px !important; padding-bottom: 44px !important; }
+    [style*="gap:64px"], [style*="gap: 64px"], [style*="gap:56px"], [style*="gap: 56px"], [style*="gap:48px"], [style*="gap: 48px"] { gap: 24px !important; }
+    [style*="margin:0 0 48px"], [style*="margin: 0 0 48px"] { margin-bottom: 24px !important; }
+
+    /* --- buttons: full width, easy to tap --- */
+    .btn-dark, .btn-line { display: block !important; width: 100%; text-align: center; padding: 16px 20px !important; font-size: 16px !important; align-self: stretch !important; }
+    .btn-dark + .btn-dark, .btn-dark + .btn-line { margin-top: 10px; }
+
+    /* --- header --- */
+    .m-header { display: flex !important; flex-wrap: wrap !important; align-items: center !important; gap: 12px !important; padding: 14px 0 !important; width: auto !important; }
+    .m-header > div { gap: 10px !important; }
+    .m-header img[alt*="logo"] { width: 56px !important; height: 42px !important; }
+    .m-header .micro { display: none !important; }
+    .m-header > div > span { font-size: 13px !important; letter-spacing: 0.14em !important; }
+    .m-header nav { width: 100%; gap: 8px !important; flex-wrap: nowrap !important; overflow-x: auto; scrollbar-width: none; }
+    .m-header nav::-webkit-scrollbar { display: none; }
+    .m-header nav a:not(.btn-dark) { flex: none; border: 1px solid rgba(248,244,244,0.22); padding: 9px 14px; font-size: 13px !important; }
+    .m-header nav .btn-dark { display: none !important; }
+
+    /* --- hero --- */
+    .m-hero { padding-top: 36px !important; padding-bottom: 40px !important; }
+    .m-hero h1 { font-size: 46px !important; margin-bottom: 28px !important; }
+    .m-ctas { display: grid !important; gap: 10px !important; }
+    .m-ctas .btn-dark + .btn-dark { margin-top: 0; background: transparent; color: #f8f4f4; border: 1px solid rgba(248,244,244,0.35); }
+    .m-badges { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 10px !important; margin-top: 28px !important; }
+    .m-badges > div { padding: 18px 12px !important; }
+    .m-badges p[style*="font-size:20px"] { font-size: 15px !important; margin: 0 !important; }
+    .m-badges p { font-size: 12px !important; margin-bottom: 6px !important; }
+
+    /* --- steps: stacked cards with a number --- */
+    .m-steps { background: none !important; gap: 12px !important; }
+    .m-steps > div { padding: 20px !important; border: 1px solid rgba(248,244,244,0.16); border-left: 3px solid #ff563c; background: rgba(248,244,244,0.03) !important; }
+    .m-steps > div p[style*="margin: auto"], .m-steps > div p[style*="margin:auto"] { margin-top: 4px !important; }
+
+    /* --- enquiry form --- */
+    .m-formbox { padding: 22px 18px !important; gap: 28px !important; }
+    .m-formbox .optset { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px !important; }
+    .m-formbox .opt:has(> input:only-child) { display: none; }
+    .m-formbox .opt span { padding: 13px 10px !important; font-size: 14px !important; text-align: center; height: 100%; display: flex !important; align-items: center; justify-content: center; }
+    .m-formbox input[type="text"] { font-size: 16px !important; padding: 15px 14px !important; }
+    .m-formbox [style*="margin:0 0 32px"] { margin-bottom: 24px !important; }
+
+    /* --- problems: compact cards --- */
+    .m-probs { background: none !important; gap: 10px !important; }
+    .m-probs > div { padding: 20px !important; border: 1px solid rgba(248,244,244,0.14); }
+    .m-probs > div > div:first-child { transform: scale(0.8); transform-origin: left top; margin-bottom: 6px !important; }
+
+    /* --- what we build: swipe carousel --- */
+    .m-only { display: block; }
+    .m-build { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px !important; margin-right: -20px; padding-right: 20px; padding-bottom: 6px; scrollbar-width: none; }
+    .m-build::-webkit-scrollbar { display: none; }
+    .m-build > div { flex: 0 0 82%; scroll-snap-align: start; padding: 22px !important; display: flex; flex-direction: column; }
+    .m-build > div > p:last-child { margin-top: auto !important; padding-top: 16px; }
+
+    /* --- pricing, lead magnet, guide --- */
+    .m-pricing > div { padding: 22px !important; }
+    .m-pricing .micro[style*="font-size: 40px"] span { font-size: 30px !important; letter-spacing: -0.02em !important; }
+    .m-lead > div:first-child { padding: 22px !important; }
+    .m-lead > div:last-child { height: 220px !important; border-left: 0 !important; border-top: 1px solid rgba(248,244,244,0.18); }
+    .m-lead div[style*="display:flex"] { display: grid !important; gap: 10px !important; }
+    .m-lead .btn-dark + .btn-line { margin-top: 0; }
+    .m-guide h2 { font-size: 26px !important; }
+    .m-guide .micro { margin-bottom: 20px !important; }
+
+    /* --- footer --- */
+    .m-footer { grid-template-columns: 1fr 1fr !important; gap: 28px 20px !important; padding: 40px 0 32px !important; }
+    .m-footer > :first-child { grid-column: 1 / -1; }
+
+    /* --- sticky enquiry bar --- */
+    .m-sticky { display: block !important; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50; width: auto !important; box-shadow: 0 10px 30px rgba(0,0,0,0.55); }
+
+    /* --- services page --- */
+    .idx-grid { display: flex !important; overflow-x: auto; gap: 8px !important; background: none !important; border: 0 !important; margin-right: -20px; padding-right: 20px; scrollbar-width: none; }
+    .idx-grid::-webkit-scrollbar { display: none; }
+    .idx-link { flex: none; flex-direction: row !important; align-items: center; gap: 8px !important; padding: 11px 14px !important; font-size: 14px !important; border: 1px solid rgba(248,244,244,0.2); }
+    .svc { padding: 44px 0 !important; scroll-margin-top: 12px; }
+    .svc-grid { gap: 24px !important; }
+    .example { padding: 20px !important; }
+    .ex-row { grid-template-columns: minmax(0, 1fr) !important; gap: 4px !important; }
+    .svc .btn-dark { margin-top: 4px; }
+  }
 </style>
 </helmet>
 
@@ -61,7 +170,7 @@
 
       <div style="position:relative;max-width:1280px;margin:0 auto;padding:0 40px">
 
-    <header style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 26px 0; width: 1221px; height: 192px">
+    <header class="m-header" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 26px 0; width: 1221px; height: 192px">
       <div style="display:flex;align-items:center;gap:14px">
         <img src="assets/logo.png?v=2" alt="Funnel Sales System logo" width="150" height="111" style="display:block;width:150px;height:111px;object-fit:contain">
         <span style="font-weight:800;font-size:15px;letter-spacing:0.18em">FUNNEL SALES SYSTEM</span>
@@ -77,34 +186,34 @@
     <hr class="rule">
 
     <!-- 1 · HEADER -->
-    <section data-screen-label="Header" style="padding:88px 0 72px">
+    <section class="m-hero" data-screen-label="Header" style="padding:88px 0 72px">
       
     <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:64px;align-items:start">
         <div>
-          <p class="micro" style="margin:0 0 28px"><br></p>
+          <p class="m-empty micro" style="margin:0 0 28px"><br></p>
           <h1 style="font-weight: 800; font-size: 86px; line-height: 0.94; letter-spacing: -0.02em; margin: 0 0 8px; text-transform: uppercase">we craft SYSTEMS that gets SALEs.<br></h1>
           
           
-          <h1 style="color: #ff563c; font-weight: 800; font-size: 25px; line-height: 0.94; letter-spacing: -0.02em; margin: 0 0 8px; text-transform: uppercase"><br></h1><p style="font-size: 18px; line-height: 1.55; max-width: 30em; margin: 0 0 36px; color: var(--color-accent-2); text-wrap: pretty"><br></p><div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+          <h1 class="m-empty" style="color: #ff563c; font-weight: 800; font-size: 25px; line-height: 0.94; letter-spacing: -0.02em; margin: 0 0 8px; text-transform: uppercase"><br></h1><p class="m-empty" style="font-size: 18px; line-height: 1.55; max-width: 30em; margin: 0 0 36px; color: var(--color-accent-2); text-wrap: pretty"><br></p><div class="m-ctas" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
             <a href="#pricing" class="btn-dark" style="padding:18px 30px;font-size:17px">Invest In Your Business</a>
             <a href="#quick-enquiry" class="btn-dark" style="padding:18px 30px;font-size:17px">Check If You Qualify Inmediately<br></a>
           </div>
           <div style="display:flex;margin:14px 0 0">
             
           </div>
-          <p class="micro" style="margin:20px 0 0"><br></p>
+          <p class="m-empty micro" style="margin:20px 0 0"><br></p>
         </div>
       </div>
-      <div style="display:flex;gap:24px;justify-content:center;margin:64px 0 0">
+      <div class="m-badges" style="display:flex;gap:24px;justify-content:center;margin:64px 0 0">
         <div style="border:1px solid #ff563c;background:rgba(255,86,60,0.06);padding:24px 28px;width:320px;text-align:center">
-          <p style="font-size:15px;line-height:1.45;color:rgba(248,244,244,0.7);margin:0">No sale, no fee.</p><p class="micro" style="margin:0 0 10px;color:#ff9783"><br></p>
+          <p style="font-size:15px;line-height:1.45;color:rgba(248,244,244,0.7);margin:0">No sale, no fee.</p><p class="m-empty micro" style="margin:0 0 10px;color:#ff9783"><br></p>
           <p style="font-weight:800;font-size:20px;text-transform:uppercase;line-height:1.15;margin:0 0 8px">Sales guaranteed</p>
           
         </div>
         <div style="border:1px solid rgba(248,244,244,0.28);padding:24px 28px;width:320px;text-align:center">
           <p class="micro" style="margin:0 0 10px">Selected business<br><br></p>
           <p style="font-weight:800;font-size:20px;text-transform:uppercase;line-height:1.15;margin:0 0 8px">CHOSEN BUSINESS</p>
-          <p style="font-size:15px;line-height:1.45;color:rgba(248,244,244,0.7);margin:0"><br></p>
+          <p class="m-empty" style="font-size:15px;line-height:1.45;color:rgba(248,244,244,0.7);margin:0"><br></p>
         </div>
       </div>
     </section>
@@ -114,7 +223,7 @@
     <section id="plan" data-screen-label="Plan" style="padding:80px 0">
       <p class="micro" style="margin:0 0 24px;color:#ff9783;font-size:16px;letter-spacing:0.14em">How to start with us</p>
       <h2 style="font-weight:800;font-size:48px;line-height:1;letter-spacing:-0.02em;margin:0 0 48px;text-transform:uppercase">Three steps to start</h2>
-      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(248,244,244,0.16)">
+      <div class="m-steps" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(248,244,244,0.16)">
         <div style="background:#0a0908;padding:32px 28px 32px 0;display:flex;flex-direction:column">
           <p class="micro" style="margin:0 0 16px;color:#ff563c">Step 1</p>
           <p style="font-weight:800;font-size:26px;text-transform:uppercase;line-height:1.1;margin:0 0 12px">CHECK THE RANGE OF SERIVCES</p>
@@ -129,7 +238,7 @@
         </div><div style="background:#0a0908;padding:32px 0 32px 28px;display:flex;flex-direction:column">
           <p class="micro" style="margin:0 0 16px;color:#ff563c">STEP 3</p>
           <p style="font-weight:800;font-size:26px;text-transform:uppercase;line-height:1.1;margin:0 0 12px">WE WILL PROVIDE YOU WITH A PLAN</p>
-          <p style="font-size:16px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0 0 18px">When you approve the proposal we will start workning towards your business goals.&nbsp;</p><p style="margin: auto 0 0; font-size: 15px"><br></p>
+          <p style="font-size:16px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0 0 18px">When you approve the proposal we will start workning towards your business goals.&nbsp;</p><p class="m-empty" style="margin: auto 0 0; font-size: 15px"><br></p>
           
         </div>
         
@@ -138,7 +247,7 @@
 
     <!-- 2 · ENQUIRY FORM -->
     <section id="quick-enquiry" data-screen-label="Enquiry Form" style="padding:64px 0">
-      <div style="position:relative;border:1px solid #ff563c;background:rgba(255,86,60,0.06);padding:44px;display:grid;grid-template-columns:0.75fr 1.25fr;gap:56px;align-items:start;overflow:hidden">
+      <div class="m-formbox" style="position:relative;border:1px solid #ff563c;background:rgba(255,86,60,0.06);padding:44px;display:grid;grid-template-columns:0.75fr 1.25fr;gap:56px;align-items:start;overflow:hidden">
         <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(248,244,244,0.05) 1px, transparent 1px); background-size: 100% 40px; animation: gridDrift 6s linear infinite; pointer-events: none; width: 1261px; height: 764px"><p class="micro" style="margin: 18px 0 0">We reply to every enquiry within 24 hours.</p></div>
         <div style="position:relative">
           <p class="micro" style="margin:0 0 16px;color:#ff9783">Send an enquiry</p>
@@ -219,7 +328,7 @@
     <section data-screen-label="Problems We Solve" style="padding:80px 0">
       <p class="micro" style="margin:0 0 24px;color:#ff9783;font-size:16px;letter-spacing:0.14em">What most businesses go through</p>
       <h2 class="reveal" style="font-weight:800;font-size:48px;line-height:1;letter-spacing:-0.02em;margin:0 0 48px;text-transform:uppercase">Problems we solve</h2>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(248,244,244,0.16)">
+      <div class="m-probs" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(248,244,244,0.16)">
         <div class="prob reveal" style="animation-delay:0.00s;background:#0a0908;padding:32px 28px 32px 0">
           <div style="width:76px;height:48px;margin:0 0 20px">
             <div style="position:relative;height:100%;width:100%">
@@ -329,7 +438,8 @@
     <!-- 3 · VALUE PROPOSITION -->
     <section data-screen-label="Value Proposition" style="padding:80px 0">
       <h2 style="font-weight:800;font-size:48px;line-height:1;letter-spacing:-0.02em;margin:0 0 48px;text-transform:uppercase">What we build you</h2>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
+      <p class="micro m-only" style="margin:-8px 0 16px;color:#ff9783">Swipe to see all 8 →</p>
+      <div class="m-build" style="display:grid;grid-template-columns:repeat(2,1fr);gap:24px">
         <div style="border:1px solid #ff563c;padding:32px;background:rgba(255,86,60,0.06)">
           <p class="micro" style="margin:0 0 20px;color:#ff9783">01 · The system</p>
           <p style="font-weight:800;font-size:22px;line-height:1.15;margin:0 0 14px">Sales Funnel System</p>
@@ -382,9 +492,9 @@
     </section>
     <hr class="rule">
 
-    <hr class="rule"><section id="pricing" data-screen-label="Pricing" style="padding: 80px 0">
+    <hr class="rule"><section class="m-pricing-sec" id="pricing" data-screen-label="Pricing" style="padding: 80px 0">
       <h2 style="font-weight:800;font-size:48px;line-height:1;letter-spacing:-0.02em;margin:0 0 12px;text-transform:uppercase">PRICING</h2>
-      <p style="font-size:17px;color:rgba(248,244,244,0.62);margin:0 0 48px">Own the system outright, or rent it month to month. Selected clients only.</p><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch">
+      <p style="font-size:17px;color:rgba(248,244,244,0.62);margin:0 0 48px">Own the system outright, or rent it month to month. Selected clients only.</p><div class="m-pricing" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: stretch">
         <div style="border:1px solid #ff563c;padding:40px;display:flex;flex-direction:column;background:rgba(255,86,60,0.06)">
           <p class="micro" style="margin: 0 0 24px; color: var(--color-accent-2); font-size: 40px"><font color="#ff563c"><span style="font-size: 48px; letter-spacing: -1.92px; text-transform: none"><b>We Get Paid After A Month With Us.</b></span></font></p>
           
@@ -414,14 +524,14 @@
       <h2 style="font-weight:800;font-size:48px;line-height:1;letter-spacing:-0.02em;margin:0 0 16px;text-transform:uppercase">EXAMPLES&nbsp;</h2>
       <p style="font-size:17px;line-height:1.55;color:rgba(248,244,244,0.7);margin:0 0 48px;max-width:44em">You can find them on Instagram @stunningwebsites4</p>
       
-      <div style="display:flex;gap:16px;align-items:center;margin:32px 0 0;flex-wrap:wrap"><br>
+      <div class="m-empty" style="display:flex;gap:16px;align-items:center;margin:32px 0 0;flex-wrap:wrap"><br>
       </div>
     </section>
     <hr class="rule">
 
     <!-- 9 · LEAD GENERATOR -->
     <section id="leadgen" data-screen-label="Lead Generator" style="padding:80px 0">
-      <div style="border:1px solid rgba(248,244,244,0.18);display:grid;grid-template-columns:1fr 0.8fr;background:rgba(248,244,244,0.03)">
+      <div class="m-lead" style="border:1px solid rgba(248,244,244,0.18);display:grid;grid-template-columns:1fr 0.8fr;background:rgba(248,244,244,0.03)">
         <div style="padding:48px">
           <p class="micro" style="margin:0 0 24px;color:#ff9783">Free · PDF</p>
           <h2 style="font-weight:800;font-size:36px;line-height:1.06;letter-spacing:-0.02em;margin:0 0 18px">The 12-Point Enquiry Checklist</h2>
@@ -440,7 +550,7 @@
 
 
     <!-- 4 · GUIDE -->
-    <section data-screen-label="Guide" style="padding:80px 0">
+    <section class="m-guide" data-screen-label="Guide" style="padding:80px 0">
       <div style="max-width:720px;margin:0 auto;text-align:center">
         <p class="micro" style="margin:0 0 56px;color:#ff9783">Why us</p>
         <h2 style="font-weight: 800; font-size: 40px; line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 24px; text-wrap: balance; width: 765px; height: 88px">We Know What is Invest in Marketing&nbsp; That may&nbsp; never returns the investment.</h2>
@@ -451,7 +561,7 @@
     <hr class="rule">
 
     <!-- 11 · JUNK DRAWER -->
-    <footer data-screen-label="Footer" style="padding:56px 0 72px;display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:40px">
+    <footer class="m-footer" data-screen-label="Footer" style="padding:56px 0 72px;display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:40px">
       <div>
         <p style="font-weight:800;font-size:14px;margin:0 0 14px;letter-spacing:0.18em">FUNNEL SALES SYSTEM</p>
         <p style="font-size:14px;line-height:1.55;color:rgba(248,244,244,0.5);margin:0">Sales systems for trade and professional services firms. Built once, handed over working.</p>
@@ -484,6 +594,7 @@
         </div>
       </div>
     </footer>
+    <a href="#quick-enquiry" class="btn-dark m-sticky">Send enquiry</a>
   </div>
 
   </div>

@@ -38,13 +38,122 @@
     .wrap { padding: 0 16px !important; }
     .ex-row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   }
+  /* ===== Mobile (designed for phones) ===== */
+  .m-only, .m-sticky { display: none; }
+  @media (max-width: 760px) {
+    /* --- base & safety --- */
+    div[style*="max-width:1280px"], div[style*="max-width: 1280px"], .wrap { padding-left: 20px !important; padding-right: 20px !important; }
+    [style*="grid-template-columns"] { grid-template-columns: minmax(0, 1fr) !important; }
+    [style*="width: 644px"], [style*="width: 765px"], [style*="width: 1221px"], [style*="width: 369px"], [style*="width: 375px"], [style*="width:320px"], [style*="width: 320px"] { width: auto !important; max-width: 100% !important; }
+    [style*="min-height: 599px"] { min-height: 0 !important; }
+    [style*="width: 1261px"] { width: auto !important; height: auto !important; }
+    [style*="width: 1261px"] > p { display: none !important; }
+    p[style*="height"], h1[style*="height"], h2[style*="height"], h3[style*="height"], header[style*="height"], div[style*="height: 764px"], div[style*="height: 88px"], div[style*="height: 120px"] { height: auto !important; }
+    p[style*="width"], h1[style*="width"], h2[style*="width"] { width: auto !important; max-width: 100% !important; }
+    h1, h2, h3, p { overflow-wrap: break-word; }
+    .m-empty { display: none !important; }
+    img:not([alt*="logo"]), video { max-width: 100% !important; height: auto !important; }
+    hr.rule + hr.rule { display: none; }
+    body { padding-bottom: 84px; }
+
+    /* --- type scale --- */
+    h1, [style*="font-size: 86px"], [style*="font-size:86px"] { font-size: 44px !important; line-height: 0.98 !important; }
+    h2, [style*="font-size:48px"], [style*="font-size: 48px"] { font-size: 32px !important; line-height: 1.02 !important; }
+    h2 { margin-bottom: 24px !important; }
+    [style*="font-size:64px"], [style*="font-size: 64px"], [style*="font-size:56px"], [style*="font-size: 56px"], [style*="font-size:40px"], [style*="font-size: 40px"], [style*="font-size:36px"], [style*="font-size: 36px"], [style*="font-size:34px"], [style*="font-size: 34px"] { font-size: 28px !important; line-height: 1.08 !important; }
+    [style*="font-size:26px"], [style*="font-size: 26px"], [style*="font-size:28px"], [style*="font-size: 28px"] { font-size: 20px !important; }
+    [style*="font-size:17px"], [style*="font-size: 17px"], [style*="font-size:18px"], [style*="font-size: 18px"] { font-size: 16px !important; }
+    .micro[style*="font-size:16px"] { font-size: 12px !important; margin-bottom: 12px !important; }
+
+    /* --- rhythm --- */
+    section[style*="padding"] { padding-top: 44px !important; padding-bottom: 44px !important; }
+    [style*="gap:64px"], [style*="gap: 64px"], [style*="gap:56px"], [style*="gap: 56px"], [style*="gap:48px"], [style*="gap: 48px"] { gap: 24px !important; }
+    [style*="margin:0 0 48px"], [style*="margin: 0 0 48px"] { margin-bottom: 24px !important; }
+
+    /* --- buttons: full width, easy to tap --- */
+    .btn-dark, .btn-line { display: block !important; width: 100%; text-align: center; padding: 16px 20px !important; font-size: 16px !important; align-self: stretch !important; }
+    .btn-dark + .btn-dark, .btn-dark + .btn-line { margin-top: 10px; }
+
+    /* --- header --- */
+    .m-header { display: flex !important; flex-wrap: wrap !important; align-items: center !important; gap: 12px !important; padding: 14px 0 !important; width: auto !important; }
+    .m-header > div { gap: 10px !important; }
+    .m-header img[alt*="logo"] { width: 56px !important; height: 42px !important; }
+    .m-header .micro { display: none !important; }
+    .m-header > div > span { font-size: 13px !important; letter-spacing: 0.14em !important; }
+    .m-header nav { width: 100%; gap: 8px !important; flex-wrap: nowrap !important; overflow-x: auto; scrollbar-width: none; }
+    .m-header nav::-webkit-scrollbar { display: none; }
+    .m-header nav a:not(.btn-dark) { flex: none; border: 1px solid rgba(248,244,244,0.22); padding: 9px 14px; font-size: 13px !important; }
+    .m-header nav .btn-dark { display: none !important; }
+
+    /* --- hero --- */
+    .m-hero { padding-top: 36px !important; padding-bottom: 40px !important; }
+    .m-hero h1 { font-size: 46px !important; margin-bottom: 28px !important; }
+    .m-ctas { display: grid !important; gap: 10px !important; }
+    .m-ctas .btn-dark + .btn-dark { margin-top: 0; background: transparent; color: #f8f4f4; border: 1px solid rgba(248,244,244,0.35); }
+    .m-badges { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 10px !important; margin-top: 28px !important; }
+    .m-badges > div { padding: 18px 12px !important; }
+    .m-badges p[style*="font-size:20px"] { font-size: 15px !important; margin: 0 !important; }
+    .m-badges p { font-size: 12px !important; margin-bottom: 6px !important; }
+
+    /* --- steps: stacked cards with a number --- */
+    .m-steps { background: none !important; gap: 12px !important; }
+    .m-steps > div { padding: 20px !important; border: 1px solid rgba(248,244,244,0.16); border-left: 3px solid #ff563c; background: rgba(248,244,244,0.03) !important; }
+    .m-steps > div p[style*="margin: auto"], .m-steps > div p[style*="margin:auto"] { margin-top: 4px !important; }
+
+    /* --- enquiry form --- */
+    .m-formbox { padding: 22px 18px !important; gap: 28px !important; }
+    .m-formbox .optset { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px !important; }
+    .m-formbox .opt:has(> input:only-child) { display: none; }
+    .m-formbox .opt span { padding: 13px 10px !important; font-size: 14px !important; text-align: center; height: 100%; display: flex !important; align-items: center; justify-content: center; }
+    .m-formbox input[type="text"] { font-size: 16px !important; padding: 15px 14px !important; }
+    .m-formbox [style*="margin:0 0 32px"] { margin-bottom: 24px !important; }
+
+    /* --- problems: compact cards --- */
+    .m-probs { background: none !important; gap: 10px !important; }
+    .m-probs > div { padding: 20px !important; border: 1px solid rgba(248,244,244,0.14); }
+    .m-probs > div > div:first-child { transform: scale(0.8); transform-origin: left top; margin-bottom: 6px !important; }
+
+    /* --- what we build: swipe carousel --- */
+    .m-only { display: block; }
+    .m-build { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px !important; margin-right: -20px; padding-right: 20px; padding-bottom: 6px; scrollbar-width: none; }
+    .m-build::-webkit-scrollbar { display: none; }
+    .m-build > div { flex: 0 0 82%; scroll-snap-align: start; padding: 22px !important; display: flex; flex-direction: column; }
+    .m-build > div > p:last-child { margin-top: auto !important; padding-top: 16px; }
+
+    /* --- pricing, lead magnet, guide --- */
+    .m-pricing > div { padding: 22px !important; }
+    .m-pricing .micro[style*="font-size: 40px"] span { font-size: 30px !important; letter-spacing: -0.02em !important; }
+    .m-lead > div:first-child { padding: 22px !important; }
+    .m-lead > div:last-child { height: 220px !important; border-left: 0 !important; border-top: 1px solid rgba(248,244,244,0.18); }
+    .m-lead div[style*="display:flex"] { display: grid !important; gap: 10px !important; }
+    .m-lead .btn-dark + .btn-line { margin-top: 0; }
+    .m-guide h2 { font-size: 26px !important; }
+    .m-guide .micro { margin-bottom: 20px !important; }
+
+    /* --- footer --- */
+    .m-footer { grid-template-columns: 1fr 1fr !important; gap: 28px 20px !important; padding: 40px 0 32px !important; }
+    .m-footer > :first-child { grid-column: 1 / -1; }
+
+    /* --- sticky enquiry bar --- */
+    .m-sticky { display: block !important; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50; width: auto !important; box-shadow: 0 10px 30px rgba(0,0,0,0.55); }
+
+    /* --- services page --- */
+    .idx-grid { display: flex !important; overflow-x: auto; gap: 8px !important; background: none !important; border: 0 !important; margin-right: -20px; padding-right: 20px; scrollbar-width: none; }
+    .idx-grid::-webkit-scrollbar { display: none; }
+    .idx-link { flex: none; flex-direction: row !important; align-items: center; gap: 8px !important; padding: 11px 14px !important; font-size: 14px !important; border: 1px solid rgba(248,244,244,0.2); }
+    .svc { padding: 44px 0 !important; scroll-margin-top: 12px; }
+    .svc-grid { gap: 24px !important; }
+    .example { padding: 20px !important; }
+    .ex-row { grid-template-columns: minmax(0, 1fr) !important; gap: 4px !important; }
+    .svc .btn-dark { margin-top: 4px; }
+  }
 </style>
 </helmet>
 
 <div style="background:#0a0908">
   <div class="wrap" style="max-width:1280px;margin:0 auto;padding:0 40px">
 
-    <header style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:26px 0">
+    <header class="m-header" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:26px 0">
       <a href="index.html" style="display:flex;align-items:baseline;gap:14px;color:#f8f4f4">
         <span style="font-weight:800;font-size:15px;letter-spacing:0.18em">FUNNEL SALES SYSTEM</span>
         <span class="micro">Trade &amp; professional services</span>
@@ -233,7 +342,7 @@
           <p style="font-weight:700;font-size:22px;line-height:1.3;margin:0 0 32px;color:#f8f4f4">Streamline Operations, Smooth Processes, Faster Operation System, AI ChatBots.&nbsp;</p>
           <p class="micro" style="margin:0 0 14px">TIME RANGE</p>
           <p style="font-size:17px;line-height:1.6;color:rgba(248,244,244,0.7);margin:0 0 16px">Depends On The Desired System.<br><br>Pricing Depends On The Desired System.<br></p>
-          <p style="font-size:17px;line-height:1.6;color:rgba(248,244,244,0.7);margin:0 0 28px"><br></p>
+          <p class="m-empty" style="font-size:17px;line-height:1.6;color:rgba(248,244,244,0.7);margin:0 0 28px"><br></p>
           <ul style="list-style:none;padding:0;margin:0 0 32px;display:grid;gap:12px;font-size:16px;line-height:1.45;color:rgba(248,244,244,0.82)">
             <li><strong style="font-weight: 700; color: rgb(255, 86, 60)">—</strong>&nbsp; Automate your business for a smooth operations system.</li>
             <li><strong style="font-weight: 700; color: rgb(255, 86, 60)">—</strong>&nbsp; Creation of a data base collecting customers details.</li>
@@ -334,6 +443,7 @@
       <p style="font-weight:800;font-size:14px;margin:0;letter-spacing:0.18em">FUNNEL SALES SYSTEM</p>
       <span class="micro">Privacy · Terms</span>
     </footer>
+    <a href="index.html#quick-enquiry" class="btn-dark m-sticky">Send enquiry</a>
   </div>
 </div>
 
